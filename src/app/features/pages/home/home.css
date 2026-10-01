@@ -1,0 +1,38 @@
+.upcomoing {
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: url('/images/home/test.jpg') center / cover;
+    filter: blur(16px);
+    z-index: 0;
+  }
+
+  .upcomoing-inner{
+    position: relative;
+    z-index: 1;
+
+    .img{
+        height: 220px;
+        background: url('/images/home/test.jpg') center / cover;
+    }
+  }
+
+  .calendar {
+    .days {
+      ul {
+        li {
+          font-size: 12px;
+          color: #fff;
+          width: 64px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

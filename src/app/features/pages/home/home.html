@@ -1,0 +1,79 @@
+<div class="home">
+  <div class="hero w-full h-screen bg-red-700">
+    <div class="container">
+      <div class="text flex flex-col justify-center h-screen gap-7 lg:w-180">
+        <h2 class="text-[60px] text-white">{{ 'HERO.TITLE' | translate }}</h2>
+        <div class="line w-25 h-0.25 bg-gold"></div>
+        <p class="text-white text-lg">{{ 'HERO.SUBTITLE' | translate }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="upcomoing w-full">
+    <div class="container">
+      <div class="upcomoing-inner w-full h-full py-25">
+        <h2 class="text-[60px] text-gold">მომავალი ღონისძიებები</h2>
+        <div class="line w-full h-0.25 bg-gold mt-4"></div>
+
+        <div class="calendar-fesival flex max-md:flex-col gap-12 mt-12">
+          <div class="calendar min-w-130 h-auto flex flex-col gap-6">
+            <div class="top flex justify-between">
+              <h3 class="text-white text-[56px]">{{ 'MONTHS.' + monthName() | translate }}</h3>
+              <p class="mt-auto text-white text-[32px]">{{ year() }}</p>
+            </div>
+
+            <div class="line w-full h-0.25 bg-white"></div>
+
+            <div class="days">
+              <ul class="grid grid-cols-7">
+                @for (weekDay of weekdays(); track $index) {
+                  <li>{{ `WEEKENDS.` + weekDay | translate }}</li>
+                }
+              </ul>
+            </div>
+
+            <div class="numbers grid grid-cols-7">
+              @for (c of cells(); track $index) {
+                @if (c.day) {
+                  <button
+                    type="button"
+                    class="day w-16 h-16 flex items-center justify-center text-white/40"
+                    [ngClass]="{ 'bg-gold': isSelected(c), 'text-white/100': isFestival(c) }"
+                    (click)="isFestival(c) ? select(c) : ''"
+                  >
+                    {{ c.day }}
+                  </button>
+                } @else {
+                  <span class="day empty"></span>
+                }
+              }
+            </div>
+          </div>
+
+          <div
+            class="festival py-8 px-8 flex flex-col gap-6 backdrop-blur-[16px] w-full h-auto rounded-[4px]"
+          >
+            <div class="title">
+              <p class="text-gold text-[14px] uppercase font-bold">14 october signagi</p>
+              <h3 class="text-[40px] text-navy mt-3"><i>Wine Festival</i></h3>
+            </div>
+
+            <div class="line w-full h-0.25 bg-white"></div>
+            <div class="description">
+              <p class="text-white">
+                ღვინის დეგუსტაციის ფესტივალის აღწერა ღვინის დეგუსტაციის ფესტივალის აღწერა ღვინის
+                დეგუსტაციის ფესტივალის აღწერა ღვინის დეგუსტაციის ფესტივალის აღწერა ღვინის
+                დეგუსტაციის ფესტივალის აღწერა
+              </p>
+            </div>
+            <div class="line w-full h-0.25 bg-white"></div>
+
+            <div class="img w-full rounded-[4px] aspect-16/46"></div>
+
+            <button class="w-full h-12 bg-navy text-gold">გაიგეთ მეტი</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

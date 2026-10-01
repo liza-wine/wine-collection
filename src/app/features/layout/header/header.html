@@ -1,0 +1,93 @@
+<header class="fixed left-0 top-0 right-0 z-50">
+  <div class="header-inner px-20 w-full h-25 bg-navy flex items-center justify-between">
+    <div class="logo flex items-center gap-4">
+      <div class="logo"></div>
+      <h1 class="text-xl text-gold">Wine Collection of Georgia</h1>
+    </div>
+
+    <nav class="max-lg:hidden">
+      <ul class="flex items-center gap-10">
+        <li class="text-gold uppercase">{{ 'NAVIGATION.UPCOMING_EVENTS' | translate }}</li>
+        <li class="text-gold uppercase">{{ 'NAVIGATION.WHAT_WE_DO' | translate }}</li>
+        <li class="text-gold uppercase">{{ 'NAVIGATION.PARTNERS' | translate }}</li>
+        <li class="text-gold uppercase">{{ 'NAVIGATION.CONTACT' | translate }}</li>
+      </ul>
+    </nav>
+
+    <div class="lang flex items-center gap-3 max-lg:hidden">
+      <p
+        (click)="changeLang('en')"
+        class="text-muted-blue cursor-pointer"
+        [ngClass]="{ 'text-white border-b-gold border-b-[1.5px]': activeLang() === 'en' }"
+      >
+        EN
+      </p>
+      <div class="line w-0.25 h-4 bg-muted-blue"></div>
+      <p
+        (click)="changeLang('ka')"
+        class="text-muted-blue cursor-pointer"
+        [ngClass]="{ 'text-white border-b-gold border-b-[1.5px]': activeLang() === 'ka' }"
+      >
+        KA
+      </p>
+    </div>
+
+    <div class="lg:hidden">
+      <div class="burger-menu flex flex-col cursor-pointer w-7 gap-1.25" (click)="openMenu()">
+        <div class="line w-full h-0.5 bg-gold"></div>
+        <div class="line w-full h-0.5 bg-gold"></div>
+        <div class="line w-2/3 h-0.5 bg-gold"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div
+  class="mobile-nav fixed top-0 left-0 right-0 w-full h-screen bg-navy transition-transform duration-300 ease-in-out"
+  [class.translate-x-0]="isMenuOpen()"
+  [class.translate-x-full]="!isMenuOpen()"
+  [attr.aria-hidden]="!isMenuOpen()"
+  [inert]="!isMenuOpen()"
+>
+  <div class="mobile-nav__inner relative flex flex-col w-full h-full px-4 py-6">
+    <div class="top flex items-center justify-between">
+      <div class="logo flex items-center gap-4">
+        <div class="logo"></div>
+        <h1 class="text-xl text-gold">Wine Collection of Georgia</h1>
+      </div>
+      <div
+        class="close ml-auto text-3xl text-gold cursor-pointer"
+        (click)="isMenuOpen.set(false)"
+      >
+        X
+      </div>
+    </div>
+    <nav class="mt-8">
+      <ul class="flex flex-col justify-center gap-6">
+        <li class="text-gold uppercase">{{ 'NAVIGATION.UPCOMING_EVENTS' | translate }}</li>
+        <li class="text-gold uppercase">{{ 'NAVIGATION.WHAT_WE_DO' | translate }}</li>
+        <li class="text-gold uppercase">{{ 'NAVIGATION.PARTNERS' | translate }}</li>
+        <li class="text-gold uppercase">{{ 'NAVIGATION.CONTACT' | translate }}</li>
+      </ul>
+    </nav>
+
+    <div class="lang flex items-center gap-3 mt-auto mx-auto">
+      <p
+        (click)="changeLang('en')"
+        class="text-muted-blue cursor-pointer"
+        [ngClass]="{ 'text-white border-b-gold border-b-[1.5px]': activeLang() === 'en' }"
+      >
+        EN
+      </p>
+      <div class="line w-0.25 h-4 bg-muted-blue"></div>
+      <p
+        (click)="changeLang('ka')"
+        class="text-muted-blue cursor-pointer"
+        [ngClass]="{ 'text-white border-b-gold border-b-[1.5px]': activeLang() === 'ka' }"
+      >
+        KA
+      </p>
+    </div>
+
+  </div>
+</div>

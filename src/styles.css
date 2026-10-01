@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-ka: "Noto Sans Georgian", sans-serif;;
+  --font-en: "Playfair", serif;
+
+  --color-navy: #0F2A4A;
+  --color-gold: #C9A227;
+  --color-slate: #1E3D5E;
+  --color-muted-blue: #5F7495;
+}
+
+@layer base {
+  :lang(en) {
+    font-family: var(--font-en);
+  }
+
+  :lang(ka) {
+    font-family: var(--font-ka);
+  }
+}
+
+.container {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+button{
+  border-radius: 4px;
+  cursor: pointer;
+}

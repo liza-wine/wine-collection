@@ -76,4 +76,143 @@
       </div>
     </div>
   </div>
+
+  <section class="what-we-do py-20">
+    <div class="container max-lg:px-6">
+      <div class="what-we-do__inner flex flex-col gap-8">
+        <div class="title flex justify-between max-sm:flex-col max-sm:gap-6">
+          <div class="big flex flex-col gap-4">
+            <h2 class="text-[44px]">What we do</h2>
+            <div class="line w-20 h-0.25 bg-gold"></div>
+          </div>
+          <p class="md:w-2/3 w-full">
+            Wine Collection Of Georgia creates platforms for dialogue, collaboration and growth,
+            uniting Georgian wine with international partners, professionals and new markets.
+            Georgia connects.
+          </p>
+        </div>
+
+        <div
+          class="boxes w-full h-auto bg-navy p-4 grid grid-cols-1 gap-y-3 md:grid-cols-3 px-8 lg:grid-cols-6 lg:px-0 lg:py-10"
+        >
+          <div
+            class="box w-full h-auto flex flex-col items-center max-md:justify-center gap-2 lg:h-40 lg:justify-center min-h-21"
+          >
+            <div class="icon w-9 h-9 bg-red-700"></div>
+            <p class="text-gold text-[16px] font-bold text-center lg:px-6 lg:text-[18px]">
+              Forums & Symposiums
+            </p>
+          </div>
+          <div
+            class="box w-full h-auto flex flex-col items-center max-md:justify-center gap-2 lg:h-40 lg:justify-center min-h-21"
+          >
+            <div class="icon w-9 h-9 bg-red-700"></div>
+            <p class="text-gold text-[16px] font-bold text-center lg:px-6 lg:text-[18px]">
+              International Cooperation
+            </p>
+          </div>
+          <div
+            class="box w-full h-auto flex flex-col items-center max-md:justify-center gap-2 lg:h-40 lg:justify-center min-h-21"
+          >
+            <div class="icon w-9 h-9 bg-red-700"></div>
+            <p class="text-gold text-[16px] font-bold text-center lg:px-6 lg:text-[18px]">
+              Heritage Preservation
+            </p>
+          </div>
+          <div
+            class="box w-full h-auto flex flex-col items-center max-md:justify-center gap-2 lg:h-40 lg:justify-center min-h-21"
+          >
+            <div class="icon w-9 h-9 bg-red-700"></div>
+            <p class="text-gold text-[16px] font-bold text-center lg:px-6 lg:text-[18px]">
+              Wine Promotion & Export Opportunities
+            </p>
+          </div>
+          <div
+            class="box w-full h-auto flex flex-col items-center max-md:justify-center gap-2 lg:h-40 lg:justify-center min-h-21"
+          >
+            <div class="icon w-9 h-9 bg-red-700"></div>
+            <p class="text-gold text-[16px] font-bold text-center lg:px-6 lg:text-[18px]">
+              Education & Promotion
+            </p>
+          </div>
+          <div
+            class="box w-full h-auto flex flex-col items-center max-md:justify-center gap-2 lg:h-40 lg:justify-center min-h-21"
+          >
+            <div class="icon w-9 h-9 bg-red-700"></div>
+            <p class="text-gold text-[16px] font-bold text-center lg:px-6 lg:text-[18px]">
+              Cultural & Educational Projects
+            </p>
+          </div>
+        </div>
+
+        <p>
+          Wine Collection Of Georgia creates platforms for dialogue, collaboration and growth,
+          uniting Georgian wine with international partners, professionals and new markets. Georgia
+          connects.
+        </p>
+        <p>
+          Wine Collection Of Georgia creates platforms for dialogue, collaboration and growth,
+          uniting Georgian wine with international partners, professionals and new markets. Georgia
+          connects.
+        </p>
+
+        <div class="festivals">
+          <h2 class="text-[36px]">Our Previous Festivals</h2>
+          <div class="boxes grid grid-cols-1 gap-y-4 md:grid-cols-2 md:gap-5">
+            <div class="box w-full rounded-sm overflow-hidden">
+              <div class="img w-full h-[190px] bg-red-700"></div>
+              <div class="content p-4 flex flex-col gap-2 backdrop-blur-[16px]">
+                <p>2 JULY, 2026 · TBILISI, GEORGIA</p>
+                <h4 class="text-gold text-[21px]">WineFest 2026</h4>
+              </div>
+            </div>
+            <div class="box w-full rounded-sm overflow-hidden">
+              <div class="img w-full h-[190px] bg-red-700"></div>
+              <div class="content p-4 flex flex-col gap-2 backdrop-blur-[16px]">
+                <p>2 JULY, 2026 · TBILISI, GEORGIA</p>
+                <h4 class="text-gold text-[21px]">WineFest 2026</h4>
+              </div>
+            </div>
+            <div class="box w-full rounded-sm overflow-hidden">
+              <div class="img w-full h-[190px] bg-red-700"></div>
+              <div class="content p-4 flex flex-col gap-2 backdrop-blur-[16px]">
+                <p>2 JULY, 2026 · TBILISI, GEORGIA</p>
+                <h4 class="text-gold text-[21px]">WineFest 2026</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wineries">
+    <div class="carusel relative">
+      <div class="container max-lg:px-6">
+        <div class="carusel-inner w-full relative flex items-center justify-between">
+          <button
+            class="absolute -left-10 disabled:opacity-30"
+            (click)="prev()"
+            [disabled]="!canPrev()"
+          >
+            LEFT
+          </button>
+
+          @for (item of visible(); track item.id) {
+            <div class="box w-100 h-20 bg-red-700">
+              <p>{{item.title}}</p>
+            </div>
+          }
+
+          <button
+            class="absolute -right-10 disabled:opacity-30"
+            (click)="next()"
+            [disabled]="!canNext()"
+          >
+            RIGHT
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>

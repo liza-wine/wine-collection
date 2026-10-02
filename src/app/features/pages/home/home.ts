@@ -9,6 +9,41 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrl: './home.css',
 })
 export class Home {
+  protected data = signal<any[]>([
+    {
+      id: 1,
+      title: 'something 1',
+    },
+    {
+      id: 2,
+      title: 'something 2',
+    },
+    {
+      id: 3,
+      title: 'something 3',
+    },
+    {
+      id: 4,
+      title: 'something 4',
+    },
+  ]);
+
+  protected start = signal(0);
+  protected readonly perView = 3;
+
+  protected visible = computed(() => this.data().slice(this.start(), this.start() + this.perView));
+
+  protected canPrev = computed(() => this.start() > 0);
+  protected canNext = computed(() => this.start() + this.perView < this.data().length);
+
+  protected next() {
+    if (this.canNext()) this.start.update((s) => s + 1);
+  }
+
+  protected prev() {
+    if (this.canPrev()) this.start.update((s) => s - 1);
+  }
+
   readonly months = [
     'JANUARY',
     'FEBRUARY',

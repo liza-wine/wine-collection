@@ -36,3 +36,26 @@
     }
   }
 }
+
+.what-we-do{
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: url('/images/home/test.jpg') center / cover;
+    filter: blur(16px);
+    z-index: 0;
+  }
+
+  .what-we-do__inner{
+    position: relative;
+    z-index: 1;
+
+  }
+}
+
